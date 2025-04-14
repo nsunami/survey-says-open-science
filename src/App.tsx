@@ -1,34 +1,128 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useMemo, useState } from "react"
+import { questions } from "./data/sample-questions"
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [currentQuestion, setCurrentQuestion] = useState(0)
+  const [answers, setAnswers] = useState(questions[currentQuestion].choices)
+  const [totalScore, setTotalScore] = useState(0)
+  const [strikes, setStrikes] = useState(0)
+
+  const title = useMemo(
+    () => questions[currentQuestion].text,
+    [currentQuestion]
+  )
+
+  const handleNextQuestion = () => {
+    setCurrentQuestion((current: number) => {
+      if (current >= questions.length - 1) {
+        setCurrentQuestion(0)
+        return 0
+      }
+      return current + 1
+    })
+    setAnswers(questions[currentQuestion + 1].choices)
+    setStrikes(0)
+  }
+
+  const handleReveal = (id: number) => {
+    setAnswers(
+      answers.map((answer) => {
+        if (answer.id === id && !answer.revealed) {
+          setTotalScore(totalScore + answer.points)
+          return { ...answer, revealed: true }
+        }
+        return answer
+      })
+    )
+  }
+
+  const handleStrike = () => {
+    if (strikes < 3) {
+      setStrikes(strikes + 1)
+    }
+  }
+
+  const resetGame = () => {
+    setAnswers(answers.map((answer) => ({ ...answer, revealed: false })))
+    setTotalScore(0)
+    setStrikes(0)
+  }
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <div className="flex flex-col items-center justify-center min-h-screen bg-blue-900 text-white p-4">
+      <h1 className="text-4xl font-bold mb-6 text-yellow-400">{title}</h1>
+      <div className="w-full max-w-3xl">
+        <div className="grid grid-cols-2 gap-4 mb-8">
+          {answers.map((answer) => (
+            <div
+              key={answer.id}
+              onClick={() => handleReveal(answer.id)}
+              className={`
+                flex justify-between items-center p-4 rounded-lg cursor-pointer
+                ${answer.revealed ? "bg-blue-600" : "bg-gray-700"}
+                transition-all duration-300 h-16
+              `}
+            >
+              <div className="font-bold text-xl">
+                {answer.revealed ? answer.text : "?"}
+              </div>
+              <div
+                className={`
+                ${answer.revealed ? "bg-yellow-500" : "bg-gray-600"} 
+                px-3 py-1 rounded-lg font-bold
+              `}
+              >
+                {answer.revealed ? answer.points : ""}
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <div className="flex justify-between items-center mb-6">
+          <div className="text-2xl">
+            Score:{" "}
+            <span className="font-bold text-yellow-400">{totalScore}</span>
+          </div>
+
+          <div className="flex items-center space-x-2">
+            <span className="text-2xl mr-2">Strikes:</span>
+            {[1, 2, 3].map((i) => (
+              <span
+                key={i}
+                className={`text-4xl ${
+                  i <= strikes ? "text-red-500" : "text-gray-600"
+                }`}
+              >
+                X
+              </span>
+            ))}
+          </div>
+        </div>
+
+        <div className="flex justify-center space-x-4">
+          <button
+            onClick={handleStrike}
+            className="bg-red-600 hover:bg-red-700 px-6 py-2 rounded-lg font-bold"
+          >
+            Strike
+          </button>
+          <button
+            onClick={resetGame}
+            className="bg-green-600 hover:bg-green-700 px-6 py-2 rounded-lg font-bold"
+          >
+            Reset
+          </button>
+        </div>
+        <div className="flex justify-center space-x-4 my-4">
+          <button
+            onClick={handleNextQuestion}
+            className="bg-green-600 hover:bg-green-700 px-6 py-2 rounded-lg font-bold hover:cursor-pointer"
+          >
+            Next Question
+          </button>
+        </div>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    </div>
   )
 }
 
