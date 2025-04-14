@@ -1,11 +1,16 @@
 import { useMemo, useState } from "react"
 import { questions } from "./data/sample-questions"
+import useSound from "use-sound"
+
+import rightAnswerFx from "../public/right-answer.mp3"
 
 function App() {
   const [currentQuestionId, setCurrentQuestionId] = useState(0)
   const [answers, setAnswers] = useState(questions[currentQuestionId].choices)
   const [totalScore, setTotalScore] = useState(0)
   const [strikes, setStrikes] = useState(0)
+
+  const [playCorrect] = useSound(rightAnswerFx)
 
   const title = useMemo(
     () => questions[currentQuestionId].text,
@@ -25,6 +30,7 @@ function App() {
   }
 
   const handleReveal = (id: number) => {
+    playCorrect()
     setAnswers(
       answers.map((answer) => {
         if (answer.id === id && !answer.revealed) {
