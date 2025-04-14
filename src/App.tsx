@@ -3,6 +3,7 @@ import { questions } from "./data/sample-questions"
 import useSound from "use-sound"
 
 import rightAnswerFx from "../public/right-answer.mp3"
+import wrongAnswerFx from "../public/wrong-answer.mp3"
 
 function App() {
   const [currentQuestionId, setCurrentQuestionId] = useState(0)
@@ -11,6 +12,7 @@ function App() {
   const [strikes, setStrikes] = useState(0)
 
   const [playCorrect] = useSound(rightAnswerFx)
+  const [playWrong] = useSound(wrongAnswerFx)
 
   const title = useMemo(
     () => questions[currentQuestionId].text,
@@ -43,6 +45,7 @@ function App() {
   }
 
   const handleStrike = () => {
+    playWrong()
     if (strikes < 3) {
       setStrikes(strikes + 1)
     }
