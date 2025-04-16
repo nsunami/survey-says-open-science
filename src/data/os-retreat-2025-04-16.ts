@@ -52,4 +52,40 @@ export const questions = [
       },
     ],
   },
+  {
+    id: 3,
+    text: "The most hurtful consequence of Gold Open Access is ______",
+    choices: [
+      {
+        id: 1,
+        text: "Costs / waste of money",
+        points: 34,
+        revealed: false,
+      },
+      {
+        id: 2,
+        text: "Growing inequality",
+        points: 21,
+        revealed: false,
+      },
+      {
+        id: 3,
+        text: "Publishers taking over the world",
+        points: 10,
+        revealed: false,
+      },
+      {
+        id: 4,
+        text: "Unintended side effects (plagiarism, fast science, retractions)",
+        points: 7,
+        revealed: false,
+      },
+      {
+        id: 5,
+        text: "Exploitation",
+        points: 2,
+        revealed: false,
+      },
+    ],
+  },
 ]
