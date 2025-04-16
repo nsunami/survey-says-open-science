@@ -1,9 +1,12 @@
 import { useMemo, useState } from 'react'
-import { questions } from './data/sample-questions'
+import { questions } from './data/os-retreat-2025-04-16'
 import useSound from 'use-sound'
 
-import rightAnswerFx from '../public/right-answer.mp3'
-import wrongAnswerFx from '../public/wrong-answer.mp3'
+import rightAnswerFx from './sound/right-answer.mp3'
+import wrongAnswerFx from './sound/wrong-answer.mp3'
+import nextQuestionFx from './sound/next-question.mp3'
+import stealFx from './sound/steal.mp3'
+import AnswerCard from './components/AnswerCard'
 
 function App() {
   const [currentQuestionId, setCurrentQuestionId] = useState(0)
@@ -13,6 +16,8 @@ function App() {
 
   const [playCorrect] = useSound(rightAnswerFx)
   const [playWrong] = useSound(wrongAnswerFx)
+  const [playNextQuestion] = useSound(nextQuestionFx)
+  const [playSteal] = useSound(stealFx)
 
   const title = useMemo(
     () => questions[currentQuestionId].text,
@@ -20,6 +25,7 @@ function App() {
   )
 
   const handleNextQuestion = () => {
+    playNextQuestion()
     setStrikes(0)
     setCurrentQuestionId((current: number) => {
       if (current >= questions.length - 1) {
@@ -105,11 +111,6 @@ function App() {
         </div>
 
         <div className='flex justify-between items-center mb-6'>
-          <div className='text-2xl'>
-            Score:{' '}
-            <span className='font-bold text-yellow-400'>{totalScore}</span>
-          </div>
-
           <div className='flex items-center space-x-2'>
             <span className='text-2xl mr-2'>Strikes:</span>
             {[1, 2, 3].map((i) => (
@@ -132,6 +133,7 @@ function App() {
           >
             Strike
           </button>
+
           <button
             onClick={resetGame}
             className='bg-slate-600 hover:bg-slate-700 px-6 py-2 rounded-lg font-bold hover:cursor-pointer'
@@ -151,6 +153,14 @@ function App() {
             className='bg-slate-600 hover:bg-slate-700 px-6 py-2 rounded-lg font-bold hover:cursor-pointer'
           >
             Next Question
+          </button>
+        </div>
+        <div className='flex justify-center space-x-4 my-4'>
+          <button
+            onClick={() => playSteal()}
+            className='bg-slate-600 hover:bg-slate-700 px-6 py-2 rounded-lg font-bold hover:cursor-pointer'
+          >
+            Steal
           </button>
         </div>
       </div>
