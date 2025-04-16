@@ -11,14 +11,14 @@ export const questions = [
       },
       { id: 2, text: "passionate people", points: 20, revealed: false },
       { id: 3, text: "curiosity & enthusiasm", points: 9, revealed: false },
-      { id: 4, text: "(early-career) researchers", points: 6, revealed: false },
-      { id: 5, text: "strong community", points: 7, revealed: false },
+      { id: 4, text: "strong community", points: 7, revealed: false },
       {
-        id: 6,
+        id: 5,
         text: "external incentives (free food, coffee, funder policies, platforms)",
         points: 7,
         revealed: false,
       },
+      { id: 6, text: "(early-career) researchers", points: 6, revealed: false },
     ],
   },
   {
