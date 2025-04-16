@@ -4,6 +4,7 @@ import useSound from "use-sound"
 
 import rightAnswerFx from "../public/right-answer.mp3"
 import wrongAnswerFx from "../public/wrong-answer.mp3"
+import AnswerCard from "./components/AnswerCard"
 
 function App() {
   const [currentQuestionId, setCurrentQuestionId] = useState(0)
@@ -74,29 +75,28 @@ function App() {
       <h1 className="text-4xl font-bold mb-6 text-yellow-400">{title}</h1>
       <div className="w-full max-w-3xl">
         <div className="grid grid-cols-2 gap-4 mb-8">
-          {answers.map((answer) => (
-            <div
-              key={answer.id}
-              onClick={() => handleReveal(answer.id)}
-              className={`
-                flex justify-between items-center p-4 rounded-lg cursor-pointer
-                ${answer.revealed ? "bg-blue-600" : "bg-gray-700"}
-                transition-all duration-300 h-16
-              `}
-            >
-              <div className="font-bold text-xl">
-                {answer.revealed ? answer.text : "?"}
-              </div>
-              <div
-                className={`
-                ${answer.revealed ? "bg-yellow-500" : "bg-gray-600"} 
-                px-3 py-1 rounded-lg font-bold
-              `}
-              >
-                {answer.revealed ? answer.points : ""}
-              </div>
-            </div>
-          ))}
+          <div className="flex flex-col gap-4">
+            {answers.map((answer) => {
+              if (answer.id >= 6) return null
+              return (
+                <AnswerCard
+                  answer={answer}
+                  onClick={() => handleReveal(answer.id)}
+                />
+              )
+            })}
+          </div>
+          <div className="flex flex-col gap-4">
+            {answers.map((answer) => {
+              if (answer.id < 6) return null
+              return (
+                <AnswerCard
+                  answer={answer}
+                  onClick={() => handleReveal(answer.id)}
+                />
+              )
+            })}
+          </div>
         </div>
 
         <div className="flex justify-between items-center mb-6">
