@@ -122,6 +122,66 @@ export const questions = [
     ],
   },
   {
+    id: 6,
+    text: "Please talk ______ to me!",
+    choices: [
+      {
+        id: 1,
+        text: "(FAIR) data (management)",
+        points: 19,
+        revealed: false,
+      },
+      {
+        id: 2,
+        text: "culture change",
+        points: 15,
+        revealed: false,
+      },
+      {
+        id: 3,
+        text: "open access",
+        points: 6,
+        revealed: false,
+      },
+      {
+        id: 4,
+        text: "(open) code/software",
+        points: 5,
+        revealed: false,
+      },
+      {
+        id: 5,
+        text: "reproducibility",
+        points: 3,
+        revealed: false,
+      },
+      {
+        id: 6,
+        text: "community",
+        points: 2,
+        revealed: false,
+      },
+      {
+        id: 7,
+        text: "participatory research",
+        points: 2,
+        revealed: false,
+      },
+      {
+        id: 8,
+        text: "truth",
+        points: 2,
+        revealed: false,
+      },
+      {
+        id: 9,
+        text: "(radical) openness",
+        points: 2,
+        revealed: false,
+      },
+    ],
+  },
+  {
     id: 9,
     text: "Citizens play the role of _____ in Science",
     choices: [
