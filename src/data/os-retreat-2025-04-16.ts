@@ -102,4 +102,17 @@ export const questions = [
       { id: 8, text: "an OSC", points: 2, revealed: false },
     ],
   },
+  {
+    id: 9,
+    text: "Citizens play the role of _____ in Science",
+    choices: [
+      { id: 1, text: "Target group", points: 22, revealed: false },
+      { id: 2, text: "Contributors", points: 16, revealed: false },
+      { id: 3, text: "Participants", points: 11, revealed: false },
+      { id: 4, text: "Funders", points: 6, revealed: false },
+      { id: 5, text: "Judges / reviewers", points: 4, revealed: false },
+      { id: 6, text: "External input", points: 3, revealed: false },
+      { id: 7, text: "Supporters", points: 3, revealed: false },
+    ],
+  },
 ]
