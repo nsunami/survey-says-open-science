@@ -105,11 +105,6 @@ function App() {
         </div>
 
         <div className="flex justify-between items-center mb-6">
-          <div className="text-2xl">
-            Score:{" "}
-            <span className="font-bold text-yellow-400">{totalScore}</span>
-          </div>
-
           <div className="flex items-center space-x-2">
             <span className="text-2xl mr-2">Strikes:</span>
             {[1, 2, 3].map((i) => (
