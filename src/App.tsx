@@ -4,6 +4,7 @@ import useSound from "use-sound"
 
 import rightAnswerFx from "../public/right-answer.mp3"
 import wrongAnswerFx from "../public/wrong-answer.mp3"
+import nextQuestionFx from "./sound/next-question.mp3"
 import AnswerCard from "./components/AnswerCard"
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
 
   const [playCorrect] = useSound(rightAnswerFx)
   const [playWrong] = useSound(wrongAnswerFx)
+  const [playNextQuestion] = useSound(nextQuestionFx)
 
   const title = useMemo(
     () => questions[currentQuestionId].text,
@@ -21,6 +23,7 @@ function App() {
   )
 
   const handleNextQuestion = () => {
+    playNextQuestion()
     setStrikes(0)
     setCurrentQuestionId((current: number) => {
       if (current >= questions.length - 1) {
