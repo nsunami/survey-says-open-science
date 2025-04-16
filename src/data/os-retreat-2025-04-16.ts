@@ -104,6 +104,22 @@ export const questions = [
   {
     id: 5,
     text: "_____ is the most important value for Open Science",
+    choices: [
+      { id: 1, text: "integrity", points: 17, revealed: false },
+      { id: 2, text: "transparency", points: 16, revealed: false },
+      { id: 3, text: "inclusivity", points: 10, revealed: false },
+      {
+        id: 4,
+        text: "rigorous scientific knowledge",
+        points: 9,
+        revealed: false,
+      },
+      { id: 5, text: "equity", points: 7, revealed: false },
+      { id: 6, text: "accessibility", points: 6, revealed: false },
+      { id: 7, text: "openness", points: 5, revealed: false },
+      { id: 8, text: "collaboration", points: 3, revealed: false },
+      { id: 9, text: "reproducibility", points: 2, revealed: false },
+    ],
   },
   {
     id: 9,
