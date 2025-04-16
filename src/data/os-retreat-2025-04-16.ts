@@ -226,7 +226,7 @@ export const questions = [
     choices: [
       { id: 1, text: "done right!", points: 27, revealed: false },
       { id: 2, text: "that is open", points: 14, revealed: false },
-      { id: 3, text: "with integrity /honesty", points: 8, revealed: false },
+      { id: 3, text: "with integrity / honesty", points: 8, revealed: false },
       { id: 4, text: "for all", points: 5, revealed: false },
       { id: 5, text: "on the next level", points: 5, revealed: false },
       { id: 6, text: "with friends", points: 3, revealed: false },
