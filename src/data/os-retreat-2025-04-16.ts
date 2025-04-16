@@ -182,6 +182,45 @@ export const questions = [
     ],
   },
   {
+    id: 7,
+    text: "University rankings are good for ______",
+    choices: [
+      { id: 1, text: "nothing and no one", points: 24, revealed: false },
+      {
+        id: 2,
+        text: "rankers, PR departments and marketing",
+        points: 13,
+        revealed: false,
+      },
+      {
+        id: 3,
+        text: "empowering the privileged (universities)",
+        points: 8,
+        revealed: false,
+      },
+      {
+        id: 4,
+        text: "identifying high quality institutions",
+        points: 8,
+        revealed: false,
+      },
+      {
+        id: 5,
+        text: "(delusional) reputation, ego's",
+        points: 7,
+        revealed: false,
+      },
+      { id: 6, text: "capitalism/funding", points: 5, revealed: false },
+      { id: 7, text: "publishers", points: 3, revealed: false },
+      {
+        id: 8,
+        text: "attracting (international) students",
+        points: 2,
+        revealed: false,
+      },
+    ],
+  },
+  {
     id: 9,
     text: "Citizens play the role of _____ in Science",
     choices: [
