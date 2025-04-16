@@ -88,4 +88,18 @@ export const questions = [
       },
     ],
   },
+  {
+    id: 4,
+    text: "I like my community to be ______",
+    choices: [
+      { id: 1, text: "inclusive / welcoming", points: 26, revealed: false },
+      { id: 2, text: "collaborative", points: 7, revealed: false },
+      { id: 3, text: "doing good science", points: 7, revealed: false },
+      { id: 4, text: "open", points: 16, revealed: false },
+      { id: 5, text: "supportive", points: 11, revealed: false },
+      { id: 6, text: "active", points: 4, revealed: false },
+      { id: 7, text: "aware", points: 4, revealed: false },
+      { id: 8, text: "an OSC", points: 2, revealed: false },
+    ],
+  },
 ]
