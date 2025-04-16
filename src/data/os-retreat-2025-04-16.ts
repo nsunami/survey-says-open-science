@@ -210,7 +210,7 @@ export const questions = [
         points: 7,
         revealed: false,
       },
-      { id: 6, text: "capitalism/funding", points: 5, revealed: false },
+      { id: 6, text: "capitalism / funding", points: 5, revealed: false },
       { id: 7, text: "publishers", points: 3, revealed: false },
       {
         id: 8,
