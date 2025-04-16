@@ -1,0 +1,55 @@
+export const questions = [
+  {
+    id: 1,
+    text: "Open Science is driven by ______",
+    choices: [
+      {
+        id: 1,
+        text: "values (transparency, democracy, accessible research, equity)",
+        points: 28,
+        revealed: false,
+      },
+      { id: 2, text: "passionate people", points: 20, revealed: false },
+      { id: 3, text: "curiosity & enthusiasm", points: 9, revealed: false },
+      { id: 4, text: "(early-career) researchers", points: 6, revealed: false },
+      { id: 5, text: "strong community", points: 7, revealed: false },
+      {
+        id: 6,
+        text: "external incentives (free food, coffee, funder policies, platforms)",
+        points: 7,
+        revealed: false,
+      },
+    ],
+  },
+  {
+    id: 2,
+    text: "In order to make Science more open, we need to reward ______",
+    choices: [
+      {
+        id: 1,
+        text: "OS practices (data / code sharing, preregistration)",
+        points: 26,
+        revealed: false,
+      },
+      { id: 2, text: "researchers", points: 10, revealed: false },
+      { id: 3, text: "transparency", points: 8, revealed: false },
+      { id: 4, text: "collaboration", points: 7, revealed: false },
+      { id: 5, text: "openness", points: 5, revealed: false },
+      {
+        id: 6,
+        text: "internal motivators (care, integrity, rebellion, curiosity)",
+        points: 5,
+        revealed: false,
+      },
+      { id: 7, text: "people", points: 5, revealed: false },
+      { id: 8, text: "failures", points: 3, revealed: false },
+      { id: 9, text: "alternative outputs", points: 2, revealed: false },
+      {
+        id: 10,
+        text: "Open Science leadership & mentorship",
+        points: 2,
+        revealed: false,
+      },
+    ],
+  },
+]
