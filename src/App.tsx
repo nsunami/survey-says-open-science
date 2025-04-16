@@ -1,5 +1,5 @@
 import { useMemo, useState } from "react"
-import { questions } from "./data/sample-questions"
+import { questions } from "./data/os-retreat-2025-04-16"
 import useSound from "use-sound"
 
 import rightAnswerFx from "./sound/right-answer.mp3"
