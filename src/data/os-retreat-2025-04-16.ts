@@ -241,7 +241,7 @@ export const questions = [
       { id: 3, text: "participants", points: 11, revealed: false },
       { id: 4, text: "funders", points: 6, revealed: false },
       { id: 5, text: "judges / reviewers", points: 4, revealed: false },
-      { id: 6, text: "external input", points: 3, revealed: false },
+      { id: 6, text: "advisers", points: 3, revealed: false },
       { id: 7, text: "supporters", points: 3, revealed: false },
     ],
   },
