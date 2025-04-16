@@ -98,7 +98,7 @@ export const questions = [
       { id: 5, text: "doing good science", points: 7, revealed: false },
       { id: 6, text: "active", points: 4, revealed: false },
       { id: 7, text: "aware", points: 4, revealed: false },
-      { id: 8, text: "an OSC", points: 2, revealed: false },
+      { id: 8, text: "an Open Science Community", points: 2, revealed: false },
     ],
   },
   {
