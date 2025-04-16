@@ -1,12 +1,12 @@
-import { useMemo, useState } from "react"
-import { questions } from "./data/os-retreat-2025-04-16"
-import useSound from "use-sound"
+import { useMemo, useState } from 'react'
+import { questions } from './data/os-retreat-2025-04-16'
+import useSound from 'use-sound'
 
-import rightAnswerFx from "./sound/right-answer.mp3"
-import wrongAnswerFx from "./sound/wrong-answer.mp3"
-import nextQuestionFx from "./sound/next-question.mp3"
-import stealFx from "./sound/steal.mp3"
-import AnswerCard from "./components/AnswerCard"
+import rightAnswerFx from './sound/right-answer.mp3'
+import wrongAnswerFx from './sound/wrong-answer.mp3'
+import nextQuestionFx from './sound/next-question.mp3'
+import stealFx from './sound/steal.mp3'
+import AnswerCard from './components/AnswerCard'
 
 function App() {
   const [currentQuestionId, setCurrentQuestionId] = useState(0)
@@ -76,42 +76,48 @@ function App() {
   }
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-blue-900 text-white p-4">
-      <h1 className="text-4xl font-bold mb-6 text-yellow-400">{title}</h1>
-      <div className="w-full max-w-3xl">
-        <div className="grid grid-cols-2 gap-4 mb-8">
-          <div className="flex flex-col gap-4">
-            {answers.map((answer) => {
-              if (answer.id >= 6) return null
-              return (
-                <AnswerCard
-                  answer={answer}
-                  onClick={() => handleReveal(answer.id)}
-                />
-              )
-            })}
-          </div>
-          <div className="flex flex-col gap-4">
-            {answers.map((answer) => {
-              if (answer.id < 6) return null
-              return (
-                <AnswerCard
-                  answer={answer}
-                  onClick={() => handleReveal(answer.id)}
-                />
-              )
-            })}
-          </div>
+    <div className='flex flex-col items-center justify-center min-h-screen bg-gray-900 text-white p-4'>
+      <img
+        className='w-64 mb-10'
+        src='/public/survey-says-logo.png'
+        alt='Survey says logo'
+      />
+      <h1 className='text-4xl font-bold mb-6 text-white'>{title}</h1>
+      <div className='w-full max-w-3xl'>
+        <div className='grid grid-cols-2 gap-4 mb-8'>
+          {answers.map((answer) => (
+            <div
+              key={answer.id}
+              onClick={() => handleReveal(answer.id)}
+              className={`
+                flex justify-between items-center p-4 rounded-lg cursor-pointer
+                ${answer.revealed ? 'bg-blue-600' : 'bg-gray-700'}
+                transition-all duration-300 h-16
+              `}
+            >
+              <div className='font-bold text-xl'>
+                {answer.revealed ? answer.text : '?'}
+              </div>
+              <div
+                className={`
+                ${answer.revealed ? 'bg-yellow-500' : 'bg-gray-600'} 
+                px-3 py-1 rounded-lg font-bold
+              `}
+              >
+                {answer.revealed ? answer.points : ''}
+              </div>
+            </div>
+          ))}
         </div>
 
-        <div className="flex justify-between items-center mb-6">
-          <div className="flex items-center space-x-2">
-            <span className="text-2xl mr-2">Strikes:</span>
+        <div className='flex justify-between items-center mb-6'>
+          <div className='flex items-center space-x-2'>
+            <span className='text-2xl mr-2'>Strikes:</span>
             {[1, 2, 3].map((i) => (
               <span
                 key={i}
                 className={`text-4xl ${
-                  i <= strikes ? "text-red-500" : "text-gray-600"
+                  i <= strikes ? 'text-red-500' : 'text-gray-600'
                 }`}
               >
                 X
@@ -120,39 +126,39 @@ function App() {
           </div>
         </div>
 
-        <div className="flex justify-center space-x-4">
+        <div className='flex justify-center space-x-4'>
           <button
             onClick={handleStrike}
-            className="bg-red-600 hover:bg-red-700 px-6 py-2 rounded-lg font-bold hover:cursor-pointer"
+            className='bg-red-600 hover:bg-red-700 px-6 py-2 rounded-lg font-bold hover:cursor-pointer'
           >
             Strike
           </button>
 
           <button
             onClick={resetGame}
-            className="bg-slate-600 hover:bg-slate-700 px-6 py-2 rounded-lg font-bold hover:cursor-pointer"
+            className='bg-slate-600 hover:bg-slate-700 px-6 py-2 rounded-lg font-bold hover:cursor-pointer'
           >
             Reset
           </button>
         </div>
-        <div className="flex justify-center space-x-4 my-4">
+        <div className='flex justify-center space-x-4 my-4'>
           <button
             onClick={revealAll}
-            className="bg-slate-600 hover:bg-slate-700 px-6 py-2 rounded-lg font-bold hover:cursor-pointer"
+            className='bg-slate-600 hover:bg-slate-700 px-6 py-2 rounded-lg font-bold hover:cursor-pointer'
           >
             Reveal All
           </button>
           <button
             onClick={handleNextQuestion}
-            className="bg-slate-600 hover:bg-slate-700 px-6 py-2 rounded-lg font-bold hover:cursor-pointer"
+            className='bg-slate-600 hover:bg-slate-700 px-6 py-2 rounded-lg font-bold hover:cursor-pointer'
           >
             Next Question
           </button>
         </div>
-        <div className="flex justify-center space-x-4 my-4">
+        <div className='flex justify-center space-x-4 my-4'>
           <button
             onClick={() => playSteal()}
-            className="bg-slate-600 hover:bg-slate-700 px-6 py-2 rounded-lg font-bold hover:cursor-pointer"
+            className='bg-slate-600 hover:bg-slate-700 px-6 py-2 rounded-lg font-bold hover:cursor-pointer'
           >
             Steal
           </button>
