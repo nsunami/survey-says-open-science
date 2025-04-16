@@ -5,6 +5,7 @@ import useSound from "use-sound"
 import rightAnswerFx from "../public/right-answer.mp3"
 import wrongAnswerFx from "../public/wrong-answer.mp3"
 import nextQuestionFx from "./sound/next-question.mp3"
+import stealFx from "./sound/steal.mp3"
 import AnswerCard from "./components/AnswerCard"
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
   const [playCorrect] = useSound(rightAnswerFx)
   const [playWrong] = useSound(wrongAnswerFx)
   const [playNextQuestion] = useSound(nextQuestionFx)
+  const [playSteal] = useSound(stealFx)
 
   const title = useMemo(
     () => questions[currentQuestionId].text,
@@ -130,6 +132,7 @@ function App() {
           >
             Strike
           </button>
+
           <button
             onClick={resetGame}
             className="bg-slate-600 hover:bg-slate-700 px-6 py-2 rounded-lg font-bold hover:cursor-pointer"
@@ -149,6 +152,14 @@ function App() {
             className="bg-slate-600 hover:bg-slate-700 px-6 py-2 rounded-lg font-bold hover:cursor-pointer"
           >
             Next Question
+          </button>
+        </div>
+        <div className="flex justify-center space-x-4 my-4">
+          <button
+            onClick={() => playSteal()}
+            className="bg-slate-600 hover:bg-slate-700 px-6 py-2 rounded-lg font-bold hover:cursor-pointer"
+          >
+            Steal
           </button>
         </div>
       </div>
