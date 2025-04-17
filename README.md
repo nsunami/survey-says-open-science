@@ -4,6 +4,10 @@
 
 This game is the outcome of our working group in the Open Science Retreat 2025. The retreat had about 50 participants. Thus, we wanted to have a game that allows for many players.
 
+## Website
+
+https://survey-says-open-science.pages.dev/
+
 ## How to run
 
 1. Clone the repository
