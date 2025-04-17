@@ -1,0 +1,43 @@
+# This CITATION.cff file was generated with cffinit.
+# Visit https://bit.ly/cffinit to generate yours today!
+
+cff-version: 1.2.0
+title: "Survey Says: Open Science!"
+message: >-
+  If you use this software, please cite it using the
+  metadata from this file.
+type: software
+authors:
+  - given-names: Jazelle Maira
+    family-names: Carillo
+    orcid: "https://orcid.org/0009-0005-7226-9310"
+  - given-names: "Melanie "
+    family-names: Imming
+    orcid: "https://orcid.org/0000-0003-2376-9755"
+  - given-names: Mariana
+    family-names: Oshima Menegon
+    orcid: "https://orcid.org/0009-0000-4655-5528"
+  - given-names: Nami
+    family-names: Sunami
+    orcid: "https://orcid.org/0000-0001-5482-8370"
+identifiers:
+  - type: doi
+    value: 10.53962/h3c8-k99f
+    description: ResearchEquals Module
+repository-code: "https://github.com/nsunami/survey-says-open-science"
+url: "https://survey-says-open-science.pages.dev/"
+abstract: >-
+  "Survey Says: Open Science!" is a game inspired by Family
+  Feud, an American television game show where groups
+  compete to name the most popular answers to survey
+  questions to win the game.
+
+
+  This game is the outcome of our working group in the Open
+  Science Retreat 2025. The retreat had about 50
+  participants. Thus, we wanted to have a game that allows
+  for many players.
+keywords:
+  - game
+  - family feud
+license: MIT
