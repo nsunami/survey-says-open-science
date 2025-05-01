@@ -14,12 +14,12 @@ export default function AnswerCard({ answer, onClick }: AnswerProps) {
       key={answer.id}
       onClick={onClick}
       className={`
-    flex justify-between items-center p-4 rounded-lg cursor-pointer
+    flex justify-between items-center p-2 lg:p-6 rounded-lg cursor-pointer
     ${answer.revealed ? "bg-blue-600" : "bg-gray-700"}
-    transition-all duration-300 h-16
+    transition-all duration-300 lg:h-32 w-full
   `}
     >
-      <div className="font-bold text-xl">
+      <div className="font-bold lg:text-xl px-2">
         {answer.revealed ? answer.text : "?"}
       </div>
       <div
