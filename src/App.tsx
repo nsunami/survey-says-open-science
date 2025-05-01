@@ -77,6 +77,11 @@ function App() {
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-gray-900 text-white p-4">
+      <img
+        src="/public/survey-says-logo.png"
+        alt="Survey Says logo"
+        className="w-64"
+      />
       <h1 className="text-4xl font-bold mb-6 text-yellow-400">{title}</h1>
       <div className="w-full max-w-3xl">
         <div className="grid grid-cols-2 gap-4 mb-8">
