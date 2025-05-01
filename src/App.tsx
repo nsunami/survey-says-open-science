@@ -7,6 +7,7 @@ import wrongAnswerFx from "./sound/wrong-answer.mp3"
 import nextQuestionFx from "./sound/next-question.mp3"
 import stealFx from "./sound/steal.mp3"
 import AnswerCard from "./components/AnswerCard"
+import Logo from "./images/survey-says-logo.png"
 
 function App() {
   const [currentQuestionId, setCurrentQuestionId] = useState(0)
@@ -77,6 +78,7 @@ function App() {
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-gray-900 text-white p-4">
+      <img src={Logo} alt="Survey Says logo" className="w-64" />
       <h1 className="text-4xl font-bold mb-6 text-yellow-400">{title}</h1>
       <div className="w-full max-w-3xl">
         <div className="grid grid-cols-2 gap-4 mb-8">
