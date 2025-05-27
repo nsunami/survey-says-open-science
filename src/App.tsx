@@ -28,6 +28,7 @@ function App() {
   const handleNextQuestion = () => {
     playNextQuestion()
     setStrikes(0)
+    setTotalScore(0)
     setCurrentQuestionId((current: number) => {
       if (current >= questions.length - 1) {
         return current
@@ -119,6 +120,10 @@ function App() {
                 X
               </span>
             ))}
+          </div>
+          <div className="text-2xl">
+            Score:{" "}
+            <span className="font-bold text-yellow-400">{totalScore}</span>
           </div>
         </div>
 
